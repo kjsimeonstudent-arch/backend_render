@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: frontend-snack-backend
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn api.wsgi:application --bind 0.0.0.0:$PORT
+    branch: main
+    autoDeploy: true
